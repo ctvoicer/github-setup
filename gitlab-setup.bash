@@ -92,14 +92,7 @@ enhancement
 suggestion
 support'
 
-LABELS='Category: Backend,c2e0c6,
-Category: Business/Meetings,0e8a16,
-Category: DevOps,fef2c0,
-Category: Frontend,bfdadc,
-Category: Infrastructure,f0e68c,
-Category: Report,40e0d0,
-Category: Unit test,ededed,
-Level: Easy,48d1cc,
+LABELS='Level: Easy,48d1cc,
 Level: Medium,20b2aa,
 Level: Hard,008b8b,
 Priority: Highest,b60205,1
@@ -107,12 +100,6 @@ Priority: High,fef2c0,2
 Priority: Medium,d4c5f9,3
 Priority: Low,d4c5f9,4
 Priority: Lowest,ededed,5
-Stage: Analysis,e6e6e6,
-Stage: Backlog,ededed,
-Stage: Cancelled,000000,
-Stage: In progress,fbca04,
-Stage: Review,0052cc,
-Stage: Testing,e616e6,
 Status: Blocked,d93f0b,
 Status: Duplicated,c5def5,
 Status: Impediment,b60205,

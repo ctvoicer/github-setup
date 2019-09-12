@@ -80,22 +80,22 @@ invalid
 question
 wontfix'
 
-LABELS='Level: Easy,48d1cc
-Level: Medium,20b2aa
-Level: Hard,008b8b
-Priority: Highest,b60205
-Priority: High,fef2c0
-Priority: Medium,d4c5f9
-Priority: Low,d4c5f9
-Priority: Lowest,ededed
-Status: Blocked,d93f0b
-Status: Duplicated,c5def5
-Status: Impediment,b60205
-Status: Needs Fixing,ff8c00
-Type: Bug,fc2929
-Type: Improvement,84b6eb
-Type: New feature,0052cc
-Type: Sub-task,ededed'
+LABELS='Level: Easy,48d1cc,Tarefa simples
+Level: Medium,20b2aa,Tarefa moderada
+Level: Hard,008b8b,Tarefa complexa
+Priority: Highest,b60205,Emergencial
+Priority: High,fef2c0,Alta urgência
+Priority: Medium,d4c5f9,Urgente
+Priority: Low,d4c5f9,Baixa urgência
+Priority: Lowest,ededed,Nenhuma urgência
+Status: Blocked,d93f0b,Bloqueado por outra pendência
+Status: Duplicated,c5def5,Duplicado
+Status: Impediment,b60205,Fora de escopo
+Status: Needs Info,ff8c00,Carece mais informações
+Type: BUG,fc2929,Mal funcionamento
+Type: Improvement,84b6eb,Melhoria de alguma funcionalidade
+Type: New feature,0052cc,Nova funcionalidade
+Type: Sub-task,ededed,Sub-tarefa relacionada a alguma outra'
 
 if [[ "$VERBOSE" == 1 ]]; then
    echo "Removing default labels"
@@ -119,7 +119,8 @@ fi
 while read -r label; do
     label_name=$(echo $label | cut -d , -f 1)
     label_color=$(echo $label | cut -d , -f 2)
-    response=$(github_api labels POST "{\"name\": \"$label_name\", \"color\":\"$label_color\"}")
+    label_description=$(echo $label | cut -d , -f 3)
+    response=$(github_api labels POST "{\"name\": \"$label_name\", \"color\":\"$label_color\", \"description\":\"$label_description\"}")
 
     if [[ "$response" == *"errors"* ]]; then
         if [[ ! "$response" == *"already_exists"* ]]; then

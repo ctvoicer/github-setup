@@ -92,22 +92,22 @@ enhancement
 suggestion
 support'
 
-LABELS='Level: Easy,48d1cc,
-Level: Medium,20b2aa,
-Level: Hard,008b8b,
-Priority: Highest,b60205,1
-Priority: High,fef2c0,2
-Priority: Medium,d4c5f9,3
-Priority: Low,d4c5f9,4
-Priority: Lowest,ededed,5
-Status: Blocked,d93f0b,
-Status: Duplicated,c5def5,
-Status: Impediment,b60205,
-Status: Needs Fixing,ff8c00,
-Type: Bug,fc2929,
-Type: Improvement,84b6eb,
-Type: New feature,052cc,
-Type: Sub-task,ededed,'
+LABELS='Level: Easy,48d1cc,Tarefa simples,
+Level: Medium,20b2aa,Tarefa moderada,
+Level: Hard,008b8b,Tarefa complexa,
+Priority: Highest,b60205,Emergencial,
+Priority: High,fef2c0,Alta urgência,
+Priority: Medium,d4c5f9,Urgente,
+Priority: Low,d4c5f9,Baixa urgência,
+Priority: Lowest,ededed,Nenhuma urgência,
+Status: Blocked,d93f0b,Bloqueado por outra pendência,
+Status: Duplicated,c5def5,Duplicado,
+Status: Impediment,b60205,Fora de escopo,
+Status: Needs Info,ff8c00,Carece mais informações,
+Type: BUG,fc2929,Mal funcionamento,
+Type: Improvement,84b6eb,Melhoria de alguma funcionalidade,
+Type: New feature,0052cc,Nova funcionalidade,
+Type: Sub-task,ededed,Sub-tarefa relacionada a alguma outra,'
 
 if [[ "$VERBOSE" == 1 ]]; then
    echo "Removing default labels"
@@ -129,8 +129,9 @@ fi
 while read -r label; do
     label_name=$(echo $label | cut -d , -f 1)
     label_color=$(echo $label | cut -d , -f 2)
-    label_priority=$(echo $label | cut -d , -f 3)
-    response=$(gitlab_labels_api POST "name=$label_name&color=#$label_color&priority=$label_priority")
+    label_description=$(echo $label | cut -d , -f 3)
+    label_priority=$(echo $label | cut -d , -f 4)
+    response=$(gitlab_labels_api POST "name=$label_name&color=#$label_color&description=$label_description&priority=$label_priority")
 
     if [[ "$response" != *"Status: 201"* ]]; then
         [[ "$response" != *"Status: 409"* ]] && >&2 echo "Error on creating: $label_name, response: $response"

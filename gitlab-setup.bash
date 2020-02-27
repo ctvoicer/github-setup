@@ -92,22 +92,25 @@ enhancement
 suggestion
 support'
 
-LABELS='Level: Easy,48d1cc,Tarefa simples,
-Level: Medium,20b2aa,Tarefa moderada,
-Level: Hard,008b8b,Tarefa complexa,
-Priority: Highest,b60205,Emergencial,
-Priority: High,fef2c0,Alta urgência,
-Priority: Medium,d4c5f9,Urgente,
-Priority: Low,d4c5f9,Baixa urgência,
-Priority: Lowest,ededed,Nenhuma urgência,
-Status: Blocked,d93f0b,Bloqueado por outra pendência,
-Status: Duplicated,c5def5,Duplicado,
-Status: Impediment,b60205,Fora de escopo,
-Status: Needs Info,ff8c00,Carece mais informações,
-Type: BUG,fc2929,Mal funcionamento,
-Type: Improvement,84b6eb,Melhoria de alguma funcionalidade,
-Type: New feature,0052cc,Nova funcionalidade,
-Type: Sub-task,ededed,Sub-tarefa relacionada a alguma outra,'
+LABELS='point: 1,dddddd,,
+point: 2,dddddd,,
+point: 3,dddddd,,
+point: 5,dddddd,,
+point: 8,dddddd,,
+point: 13,dddddd,,
+point: 21,dddddd,,
+priority: high,bfd4f2,,
+priority: highest,bfd4f2,,
+priority: low,bfd4f2,,
+priority: lowest,bfd4f2,,
+priority: medium,bfd4f2,,
+type:bug,d6bb26,bug,
+type:chore,d6bb26,chore or maintenance work,
+type:feature,d6bb26,new feature,
+type:infra,d6bb26,infrastructure related,
+type:perf,d6bb26,performance related,
+type:refactor,d6bb26,refactor,
+type:test,d6bb26,test related,'
 
 if [[ "$VERBOSE" == 1 ]]; then
    echo "Removing default labels"
